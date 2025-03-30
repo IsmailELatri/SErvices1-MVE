@@ -1,0 +1,473 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MVE Service</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="logo.jpg">
+  <style>
+    /* Reset and basic styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+    }
+    
+    /* Header and Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 50px;
+    }
+    
+    /* Desktop Navigation */
+    .desktop-nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .desktop-nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    .desktop-nav a:hover {
+      color: #4CAF50;
+    }
+    
+    .desktop-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #4CAF50;
+      transition: width 0.3s ease;
+    }
+    
+    .desktop-nav a:hover::after {
+      width: 100%;
+    }
+    
+    .desktop-nav a.text-green-600 {
+      color: #4CAF50;
+    }
+    
+    .desktop-nav a.text-green-600::after {
+      width: 100%;
+    }
+    
+    .desktop-nav a.cta {
+      background-color: #4CAF50;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+    }
+    
+    .desktop-nav a.cta:hover {
+      background-color: #3e8e41;
+      box-shadow: 0 6px 12px rgba(76, 175, 80, 0.5);
+      transform: translateY(-2px);
+    }
+    
+    .desktop-nav a.cta::after {
+      display: none;
+    }
+    
+    /* Mobile Menu Button */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #333;
+      padding: 0.5rem;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      padding: 1rem;
+      background-color: white;
+      border-top: 1px solid #eee;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    
+    .mobile-menu.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .mobile-menu a {
+      padding: 1rem;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      border-bottom: 1px solid #eee;
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+    
+    .mobile-menu a:hover {
+      background-color: #f9f9f9;
+      color: #4CAF50;
+    }
+    
+    .mobile-menu a.text-green-600 {
+      color: #4CAF50;
+    }
+    
+    .mobile-menu a.cta {
+      background-color: #4CAF50;
+      color: white;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 30px;
+      text-align: center;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+    }
+
+/*________________________________________________*/
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="logo.jpg" alt="M.V.E SERVICE Logo">
+        
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <div class="desktop-nav">
+        <a href="#" class="text-green-600">Accueil</a>
+        <a href="#about">À Propos</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact" class="cta">Obtenir un Devis</a>
+      </div>
+      
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-btn" id="mobile-menu-toggle">
+        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </nav>
+    
+    <!-- Mobile Menu Dropdown -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#" class="text-green-600">Accueil</a>
+      <a href="#about">À Propos</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact" class="cta">Obtenir un Devis</a>
+    </div>
+  </header>
+
+  <!--Cards for services-->
+
+  <section class="main">
+
+    <h2>Nos Services professionnel</h2>
+
+  </section>
+
+  <section class="Services">
+    <!--Container-->
+    <div class="container">
+        <!--Cards-->
+        <div class="cards">
+            <!--image-->
+            <div class="card-img">
+                <img src="Dératisation.jpeg" alt="Dératisation" loading="lazy">
+            </div>
+            <!--card info-->
+            <div class="card-info">
+                <h3>Dératisation</h3>
+                <p>La dératisation est un ensemble de mesures spécifiques visant à éliminer les rongeurs nuisibles 
+                  (rats, souris, etc.). Elle a pour objectif principal de lutter contre...</p>
+                <button class="btn">Lire Plus</button>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card-img">
+                <img src="Désinsectisation.jpeg" alt="Désinsectisation" loading="lazy">
+            </div>
+            <div class="card-info">
+                <h3>Désinsectisation</h3>
+                <p>LNos services de désinsectisation visent à éradiquer les nuisibles comme les cafards, les fourmis, 
+                  les moustiques, et autres insectes indésirables. Nous utilisons des traitements adaptés et sans danger pour votre santé...
+                </p>
+                <button class="btn">Lire Plus</button>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card-img">
+                <img src="Désinfection.png" alt="Désinfection" loading="lazy">
+            </div>
+            <div class="card-info">
+                <h3>Désinfection</h3>
+                <p>Nous offrons des services de désinfection de haute qualité pour éliminer les virus, bactéries, 
+                  et autres agents pathogènes présents dans vos locaux. Idéal pour les entreprises, les établissements 
+                  de santé, et les foyers...
+                </p>
+                <button class="btn">Lire Plus</button>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card-img">
+                <img src="Déreptilisation.jpeg" alt="Déreptilisation" loading="lazy">
+            </div>
+            <div class="card-info">
+                <h3>Déreptilisation</h3>
+                <p>Nos experts interviennent pour éliminer les reptiles tels que les serpents et autres nuisibles dans vos espaces. 
+                  Nous agissons avec professionnalisme pour sécuriser vos environnements...
+                </p>
+                <button class="btn">Lire Plus</button>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card-img">
+                <img src="Dépigeonnisation.jpg" alt="Dépigeonnisation" loading="lazy">
+            </div>
+            <div class="card-info">
+                <h3>Dépigeonnisation</h3>
+                <p>Pour éviter les nuisances causées par les pigeons, nous mettons en place des solutions adaptées, telles que des filets, 
+                  pics et autres dispositifs de prévention pour protéger vos bâtiments et vos installations...
+                </p>
+                <button class="btn">Lire Plus</button>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card-img">
+                <img src="dog.jpeg" alt="dog-cat" loading="lazy">
+            </div>
+            <div class="card-info">
+                <h3>Capture des chiens et chats errants</h3>
+                <p>La capture des chiens et chats errants consiste en une opération visant à recueillir ces animaux de manière sécurisée, 
+                  sans leur causer de blessures ni de stress...</p>
+                <button class="btn">Lire Plus</button>
+            </div>
+        </div>
+
+        <div class="cards">
+          <!--image-->
+          <div class="card-img">
+              <img src="Nettoyage.jpg" alt="Nettoyage" loading="lazy">
+          </div>
+          <!--card info-->
+          <div class="card-info">
+              <h3>Nettoyage</h3>
+              <p>Nous proposons des services de nettoyage professionnel pour les espaces commerciaux, industriels 
+                et résidentiels. Nos équipes interviennent régulièrement ou sur demande pour assurer la propreté de vos lieux....</p>
+              <button class="btn">Lire Plus</button>
+          </div>
+      </div>
+
+      <div class="cards">
+        <!--image-->
+        <div class="card-img">
+            <img src="Jardinage.jpg" alt="Jardinage" loading="lazy">
+        </div>
+        <!--card info-->
+        <div class="card-info">
+            <h3>Jardinage</h3>
+            <p>Nos services de jardinage incluent l'entretien des espaces extérieurs, le désherbage, la taille des haies et 
+              l'aménagement paysager. Nous créons et maintenons des jardins sains et esthétiques....</p>
+            <button class="btn">Lire Plus</button>
+        </div>
+    </div>
+
+    <div class="cards">
+      <!--image-->
+      <div class="card-img">
+          <img src="Traitement.jpg" alt="Traitement du bois" loading="lazy">
+      </div>
+      <!--card info-->
+      <div class="card-info">
+          <h3>Traitement du bois</h3>
+          <p>Le traitement du bois est essentiel pour protéger vos structures contre les insectes xylophages, l'humidité et les champignons.
+            Que ce soit pour une prévention efficace ou une intervention curative...</p>
+          <button class="btn">Lire Plus</button>
+      </div>
+  </div>
+
+
+    </div>
+</section>
+
+
+
+ <!--footer-->
+
+ <footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+         <div class="footer-logo">
+             <img src="/MVE_service/MVE_img/MVE_logo.png" alt="MVE Service Logo Footer">
+         </div>
+        <p>Expert en hygiène et lutte antiparasitaire à Paris & IDF. Solutions rapides, efficaces et respectueuses de l'environnement.</p>
+         <div class="social-links">
+          <a href="#" class="social-link fb" aria-label="Facebook"></a> <!-- Placeholder -->
+          <a href="#" class="social-link tw" aria-label="Twitter"></a> <!-- Placeholder -->
+          <a href="#" class="social-link in" aria-label="LinkedIn"></a> <!-- Placeholder -->
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Liens Rapides</h3>
+        <ul class="footer-links">
+          <li><a href="#">Accueil</a></li>
+          <li><a href="#about">À Propos</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#why-choose">Pourquoi Nous</a></li>
+          <li><a href="#testimonials">Témoignages</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Nos Prestations</h3>
+        <ul class="footer-links">
+          <li><a href="#services">Dératisation</a></li>
+          <li><a href="#services">Désinsectisation</a></li>
+          <li><a href="#services">Désinfection</a></li>
+          <li><a href="#services">Punaises de lit</a></li>
+          <li><a href="#services">Traitement Bois</a></li>
+          <li><a href="#services">Dépigeonnage</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+         <p><strong>Adresse :</strong><br>123 Rue Fictive, 75000 Paris</p>
+         <p><strong>Téléphone :</strong><br><a href="tel:+33XXXXXXXXX" style="color:#d1d5db;">+212 650-649109</a></p>
+         <p><strong>Email :</strong><br><a href="mailto:contact@mveservice.fr" style="color:#d1d5db;">soattimarouane@gmail.com</a></p>
+         <p><strong>Intervention :</strong><br> Rabat - Salé - Kénitra & partout au Maroc</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="currentYear"></span> MVE Service. Tous droits réservés. | <a href="#">Mentions Légales</a> | <a href="#">Politique de Confidentialité</a></p>
+    </div>
+  </div>
+</footer>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    // Handle mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      mobileMenuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+      });
+      
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!mobileMenu.contains(event.target) && 
+            !mobileMenuBtn.contains(event.target) && 
+            mobileMenu.classList.contains('active')) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+      
+      // Handle window resize - close mobile menu when switching to desktop view
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+          mobileMenu.classList.remove('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
