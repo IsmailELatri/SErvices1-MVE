@@ -1,0 +1,277 @@
+/* Importing Google Font - Inter*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:wght@100..900&display=swap');
+*{
+    font-family: "inter",sans-serif;
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 130px;
+    width: 100%;
+    min-width: 100vh;
+    height: 50%;
+    background:url(mve2.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment:fixed ;
+    
+}
+.main h2{
+    width: fit-content;
+    color:white;
+    font-size: 4.5em;
+    font-weight: 700;
+    border-bottom: solid 2px rgb(83, 243, 83);
+    border-width: 50%;
+
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 100px;
+
+}
+.services .container{
+    margin-top:30px ;
+}
+
+.cards{
+    background-color: white;
+    min-height:14em;
+    width: 22em;
+    overflow: hidden ;
+    border-radius: 25px;
+    margin: 20px;
+    box-shadow: 0 5px 25px rgba(1 1 1/15%);
+    transition: 0.5s ease;
+
+}
+
+.cards:hover{
+    scale: 1.05;
+    transform: translateY(-10px);
+}
+
+.card-img img{
+    width: 100%;
+    aspect-ratio: 16 /10;
+    object-fit: cover;
+    padding: 10px;
+    border-radius: 30px;
+
+}
+
+.card-info{
+    padding: 20px;
+}
+ .card-info h3{
+    width: fit-content;
+    font-size: 2em;
+    font-weight: 700;
+    border-bottom: solid 2px rgb(83, 243, 83);
+    border-width: 50%;
+    margin-bottom: 10px;
+ }
+ .card-info p{
+    font-weight: 500;
+    margin-bottom: 10px ;
+
+ }
+
+ .card-info button{
+    border: none;
+    background-color: rgb(83, 243, 83) ;
+    color: white;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: 0.5s;
+
+
+ }
+ .card-info button:hover{
+    letter-spacing: 1px;
+    transform: scale(1.08);
+    background-color: rgb(60, 255, 0);
+ }
+
+ @media (max-width:650px) {
+    .cards{
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+ }
+
+
+ /*Style de footer*/
+
+     /* Footer */
+footer {
+    background-color: #1f2937; /* Dark background */
+    color: #d1d5db; /* Lighter text color */
+    padding: 4rem 0 2rem;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2.5rem; /* Increased gap */
+    margin-bottom: 3rem; /* Increased margin */
+  }
+  
+  .footer-column h3 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem; /* Space for underline */
+  }
+  
+  .footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #4CAF50;
+  }
+  
+  .footer-column p {
+    color: #9ca3af; /* Slightly dimmer paragraph */
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .footer-logo img {
+    max-width: 150px; /* Limit logo size in footer */
+    margin-bottom: 1rem;
+  }
+  
+  .footer-links {
+    list-style: none;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.8rem; /* Adjusted spacing */
+  }
+  
+  .footer-links a {
+    color: #d1d5db;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block; /* Needed for transform */
+  }
+  
+  .footer-links a::before {
+    content: '→'; /* Arrow character */
+    display: inline-block;
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+    color: #4CAF50; /* Arrow color */
+  }
+  
+  .footer-links a:hover {
+    color: #ffffff; /* Brighter hover color */
+    transform: translateX(5px); /* Move text slightly */
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem; /* Add space above social links */
+  }
+  
+  .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem; /* Icon size */
+    transition: all 0.3s ease;
+  }
+  
+  .social-link:hover {
+    background-color: #4CAF50;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Add simple text placeholders if not using icon font */
+  .social-link.fb::before { content: 'f'; font-weight: bold; }
+  .social-link.tw::before { content: 't'; font-weight: bold; }
+  .social-link.in::before { content: 'in'; font-size: 0.9em; font-weight: bold; }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem; /* Ensure space above */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #9ca3af;
+    font-size: 0.9rem;
+  }
+  
+  .footer-bottom a {
+    color: #4CAF50;
+    text-decoration: none;
+  }
+  
+  .footer-bottom a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive adjustments for footer */
+  @media (max-width: 768px) {
+    .footer-content {
+      gap: 2rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .footer-content {
+      text-align: center; /* Center footer columns */
+    }
+    
+    .footer-column h3::after {
+      left: 50%; /* Center underline */
+      transform: translateX(-50%);
+    }
+    
+    .footer-links {
+      padding-left: 0; /* Remove padding for centered text */
+    }
+    
+    .footer-links a::before {
+      margin-right: 5px;
+    }
+    
+    .footer-links a:hover {
+      transform: none; /* Disable hover transform */
+    }
+    
+    .social-links {
+      justify-content: center; /* Center social links */
+    }
+  }
+
+   
+    
